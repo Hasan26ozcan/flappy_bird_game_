@@ -1,64 +1,39 @@
-# TEXTpY_Dungeon
+# FLAPPY_BİRD
 #### Video Demo: https://www.youtube.com/watch?v=vR5vCuTJCFc
 ## Description
-TEXTpY_Dungeon is a text-based rogue-like game that offers endless hours of pain and death. As part of my final project for CS50's Introduction to Programming with Python, I have meticulously designed this game to provide an immersive and deadly experience for players.
-
+-   To create a Flappy Bird game in Python using the Pygame library, you would need to design the game mechanics, create the graphics and audio, and write the code to implement the game logic. This would involve creating the bird and pipe objects, setting up collision detection, handling user input, and updating the game state every frame.
 
 ## Folder Contents
 - **project.py**: This file contains the ```main``` function, along with several other helper functions necessary to implement the game.
-- **game_classes.py**: This file contains all the game classes necessary to implement TEXTpY_Dungeon.
 - **test_project.py**: This contains test functions written using the ```pytest``` library for the project.py file.
 - **requirements.txt**: All ```pip```-installable libraries that I used for this project are listed here.
 
 ## How to Play
-- Execute the program using the command `python project.py`.
-- Input your desired username when prompted.
-- Whenever you encounter an event, follow the prompts accordingly.
-- After several attempts, you will understand the logic behind the game and face more satisfying challenges. Have fun playing or should I say dying!
+-   The code starts by displaying a message that invites the player to start the game, and waits for the player to press the space bar or the up arrow key. Then, the game loop starts, where the bird moves up and down according to the player's input and gravity, and the pipes and ground move to the left to simulate the bird's flight. The game ends if the bird hits a pipe or the ground.
 
 ## Game Mechanics
 
-In every game, your character’s stats, starter weapon, and mysterious elements will be randomly generated, offering a unique gameplay experience each time.
+In every game,The code also includes several variables that define the dimensions of the game window, the speed of the game, and the gravity that affects the bird. Additionally, the code includes sound effects that play when the bird flaps its wings or hits an obstacle.
 
 #### map info
-TEXTpY_Dungeon is a text-based rogue-like game that provides you with a map filled with various characters. The game mechanics and features of the map are as follows:
-
-- **Player** - represented by **x** on the map.
-- **Random event** - represented by **?** on the map. A place where you can either gain a reward or suffer a penalty.
-- **Campfire** - represented by **+** on the map. The final stop before you face the **Boss**.
-- **Normal enemies** - represented by **!** on the map.
-- **Elite enemies** - represented by **\*** on the map.
-- **Boss** - represented by **#** on the map.
+-   The pygame library is used to create the game window, load images and sounds, draw sprites, and detect user input events. The random library is used to generate random pipe heights.
+-   The Pygame module is initialized, and the screen is set with the given dimensions. The game's background and bird images are loaded from the assets directory, and the bird and ground objects are created and added to their respective sprite groups. The pipes are created using the get_random_pipes function.
 
 #### character's stats info
-Your character has several stats - **real stats** and **complex stats**:
+-   '__init__()': This method initializes the Bird object. It loads the bird sprite image, sets its initial position, velocity and gravity.
+-   'update()': This method updates the bird's position based on its velocity and gravity. It is called every frame of the game loop to animate the bird's motion.
+-   'bump()': This method increases the bird's velocity when the user presses the space or up arrow key to make the bird jump.
 
-- **Real stats**: These include vitality, aura density, dexterity, constitution, and prediction:
-  - **Vitality** plays an important role in determining how much health and aura_regeneration points you have.
-  - **Aura Density** serves as a damage multiplier for mysteries. It is limited by your weapon's aura_affinity value.
-  - **Dexterity** plays a vital role in determining your initiative.
-  - **Constitution** plays an important role in how much health and primordial_aura points you have.
-  - **Prediction** plays a role in determining your initiative and how many of your enemies' stats you can see.
+## what test functions do
+-   The "test_bird_initialization()" test checks if the Bird class initializes correctly by verifying that the bird's starting position is at the correct coordinates on the screen.
 
-- **Complex stats**: These include health, initiative, primordial_aura, and aura_regeneration:
-  - **Health** determines how many hits you can take before dying.
-  - **Initiative** determines the order of battle queue and whether or not you can avoid traps.
-  - **Primordial_aura** is a stamina-like stat that determines how many mystery abilities you can use.
-  - **Aura_regeneration** determines how much primordial_aura you can regain each turn during a battle.
+-   The "test_bird_bump()" test checks if the Bird bump function works by verifying that the bird's speed changes when it is called.
 
-#### mysteries' info;
-- Each mystery takes those stats: target, target_stat_and_strength, aura_cost, is_active, turn_count, permanence
-  - **target**: Determines whether the mystery affects the user or the enemy.
-  - **target_stat_and_strength**: Determines which stat(s) are affected by the mystery and how strong the impact is.
-  - **aura_cost**: Specifies the amount of primordial aura required to use the mystery once.
-  - **is_active**: Indicates whether the mystery is an active skill that can be used during battles or a passive one that's always active.
-  - **turn_count**: Specifies how many turns the mystery can be used before it is exhausted.
-  - **permanence**: If it's a turn-based mystery, this determines whether its effects become permanent after the duration is over.
+-   The "test_ground_initialization()" test checks if the Ground class initializes correctly by verifying that the ground's starting position is at the correct coordinates on the screen.
 
-#### Weapons' info:
-- Each weapon in the game has an **aura affinity**, which acts as a limiter for the player’s aura density stat. This means that using a weapon with a different aura affinity than your own may lower the effectiveness of your attacks. In addition to their unique aura affinity, each weapon has its own set of mysteries that can only be utilized when the weapon is equipped. These mysteries add an extra layer of strategy and depth to battles, and encourage players to experiment with different weapon choices to find the ones that best suit their gameplay styles.
+-   The "test_pipe_initialization()" test checks if the Pipe class initializes correctly by verifying that the pipe's starting position is at the correct coordinates on the screen.
 
-
+-   The "test_get_random_pipes()" test checks if the get_random_pipes function returns two Pipe instances by verifying that the objects returned are instances of the Pipe class.
 
 ## Contribution
 If you find any issues or want to contribute to this project, feel free to create a pull request or submit an issue.
